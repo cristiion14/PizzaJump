@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class MobileMovement : MonoBehaviour
 {
+    float dirX, dirY = 0f;
     Player player;
-    Gyroscope gyro;
-    // Start is called before the first frame update
+    Rigidbody rb;
     void Start()
     {
-        player = GetComponent<Player>();   
+        player = GetComponent<Player>();
+        rb = player.GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.gyro);
+        dirX = Input.acceleration.x * player.speed;
+    }
+
+    void FixedUpdate()
+    {
+        player.transform.position += new Vector3(dirX, 0, 0)  * Time.deltaTime;
     }
 }

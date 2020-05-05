@@ -23,9 +23,15 @@ public class LevelGenerator : MonoBehaviour
         player = GameObject.Find("Player");
 
         instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position, Quaternion.identity));
-       
-       // Vector3 lastSpawnPos = new Vector3();
-       // Debug.Log(spawnPos.x);
+        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
+        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
+        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
+        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
+        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
+
+
+        // Vector3 lastSpawnPos = new Vector3();
+        // Debug.Log(spawnPos.x);
         /*
         for (int i = 0; i < numberOfPlatforms; i++)
         {
@@ -38,8 +44,8 @@ public class LevelGenerator : MonoBehaviour
 
         }
         */
-     
-                
+
+
     }
 
     int i = 0;
@@ -55,9 +61,10 @@ public class LevelGenerator : MonoBehaviour
            instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
            instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
             instantiatePos += 3;
+
             Destroy(instantiatedPlatform[i]);
             i++;
-            Debug.LogError("i is: "+i);
+     //       Debug.LogError("i is: "+i);
         }
     
 

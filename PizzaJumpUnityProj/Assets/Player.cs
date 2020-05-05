@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float speed = 10f;
    public Vector3 positionTracker;
 
-
+    public int iteratorLedge = 0;
 
   public  bool hasJumped = false;
     void Start()
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
         if(other.collider.tag == "Ledge")
         {
             positionTracker.y = other.collider.transform.position.y;
+            iteratorLedge++;
             hasJumped = true;
         }
     }
