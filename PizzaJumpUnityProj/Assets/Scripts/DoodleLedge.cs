@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DoodleLedge : MonoBehaviour
 {
-    [SerializeField]
-    private float jumpForce = 8f;
+    public float jumpForce = 10f;
     void OnCollisionEnter2D(Collision2D other)
     {
 
