@@ -40,9 +40,9 @@ public class Bullet : MonoBehaviour
         Destroy(_hitEffect, 2f);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.collider.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
             Enemy enemy = other.transform.GetComponent<Enemy>();
             DoHitEffect(enemy.transform.position, transform.up);

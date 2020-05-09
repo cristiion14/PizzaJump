@@ -6,11 +6,13 @@ public class Enemy : MonoBehaviour
 {
     float maxHealth = 100f;
   public  float health;
-    
+
+  public  Animator animCtrl;
 
     void Start()
     {
         health = maxHealth;
+     //   animCtrl = GetComponentInChildren<Animator>();
     }
 
     public void TakeDmg(int damage)
@@ -26,12 +28,23 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.collider.tag == "Player")
         {
             Player player = other.collider.GetComponent<Player>();
-            player.TakeDMG(100);
+            player.TakeDMG(10);
+            animCtrl.SetBool("IsTouching", true);
+
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.collider.tag == "Player")
+        {
+            animCtrl.SetBool("IsTouching", false);
         }
     }
 }
