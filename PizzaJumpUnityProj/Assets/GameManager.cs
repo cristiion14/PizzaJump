@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
             newColor.r -= multiplier;
         }
 
-        Debug.Log(newColor.g);
+
         backroundSprt.color = newColor;
     }
 

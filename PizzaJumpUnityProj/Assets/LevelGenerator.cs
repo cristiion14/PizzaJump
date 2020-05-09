@@ -62,7 +62,7 @@ public class LevelGenerator : MonoBehaviour
            instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
             instantiatePos += 3;
 
-            Destroy(instantiatedPlatform[i]);
+          //  Destroy(instantiatedPlatform[i]);
             i++;
      //       Debug.LogError("i is: "+i);
         }
