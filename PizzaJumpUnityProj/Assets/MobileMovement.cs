@@ -14,11 +14,11 @@ public class MobileMovement : MonoBehaviour
     }
     void Update()
     {
-        dirX = Input.acceleration.x * player.speed;
+        dirX = Input.acceleration.x ;
     }
 
     void FixedUpdate()
     {
-        player.transform.position += new Vector3(dirX, 0, 0)  * Time.deltaTime;
+        player.transform.position += new Vector3(dirX, 0, 0)*player.speed * Time.deltaTime;
     }
 }

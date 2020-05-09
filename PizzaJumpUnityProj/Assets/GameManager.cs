@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     GameObject player;
     Color newColor;
 
+    public bool gameOver = false;
+
     float multiplier = 0.00002f;
     void Awake()
     {
@@ -34,5 +36,14 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(newColor.g);
         backroundSprt.color = newColor;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.collider.tag =="Player")
+        {
+            Player player = other.collider.GetComponent<Player>();
+
+        }
     }
 }
