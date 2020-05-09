@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     public SpriteRenderer backroundSprt;
@@ -10,11 +11,16 @@ public class GameManager : MonoBehaviour
     GameObject player;
     Color newColor;
 
+    public Text scoreTxT;
+
   public  GridGraph grid;
 
     public bool gameOver = false;
 
     float multiplier = 0.00002f;
+
+    
+
     void Awake()
     {
         player = GameObject.Find("Player");
@@ -22,17 +28,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    
-
     void Update()
     {
 
         
         //update the size of the graph grid
         int depth = (int)player.transform.position.y;
-       // grid.depth = depth;
-     //   grid.Scan();
+        // grid.depth = depth;
+        //   grid.Scan();
 
+        scoreTxT.text ="SCORE: "+Mathf.RoundToInt( player.transform.position.y).ToString();
         
 
         multiplier = player.transform.position.y/1000000;

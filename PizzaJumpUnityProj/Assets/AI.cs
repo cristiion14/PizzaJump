@@ -86,12 +86,12 @@ public class AI : MonoBehaviour
         //snap the position of the sprite towards the moving direction
 
         //if its going right
-        if (enemyRB.velocity.x >= .01f)
+        if (force.x > 0f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         // going left
-        else if (enemyRB.velocity.x <= .01f)
+        else if (force.x < 0f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
 

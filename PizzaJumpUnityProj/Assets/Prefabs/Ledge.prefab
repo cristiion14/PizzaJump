@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b23426b7c579cd4686ff0a5368bc7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 15
 --- !u!68 &818763531267055039
 EdgeCollider2D:
   m_ObjectHideFlags: 0

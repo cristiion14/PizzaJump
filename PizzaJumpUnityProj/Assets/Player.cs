@@ -49,17 +49,15 @@ public class Player : MonoBehaviour
     {
         Vector2 velocity = rb.velocity;
         velocity.x = movement;
-        rb.velocity = velocity;
+      //  rb.velocity = velocity;
 
 
-        if (transform.position.x < -3)
+        if (transform.position.x < -5)
         {
-            Vector3 destination = edgeR.position = new Vector3(0, transform.position.y, 0);
-            Vector3 posOffset = destination -transform.position;
 
-            transform.position = destination + posOffset;
+            transform.position = new Vector3(3, transform.position.y, 0);
         }
-        else if (transform.position.x > 3)
+        else if (transform.position.x > 5)
             transform.position = new Vector3(-3, transform.position.y, 0);
     }
 
