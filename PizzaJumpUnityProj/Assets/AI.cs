@@ -6,7 +6,6 @@ using Pathfinding;
 public class AI : MonoBehaviour
 {
     GameObject targetP;
-    public AIPath aiPath;
     GameObject GM;
 
     public float speed = 200f;
@@ -14,6 +13,8 @@ public class AI : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     bool reachEndPath = false;
+
+    
 
     Seeker seeker;
     Rigidbody2D enemyRB;
@@ -82,7 +83,6 @@ public class AI : MonoBehaviour
             currentWaypoint++;
 
 
-        Debug.LogError(force.x);
         //snap the position of the sprite towards the moving direction
 
         //if its going right

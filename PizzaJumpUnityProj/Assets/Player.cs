@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public float speed = 10f;
    public Vector3 positionTracker;
 
-
+    public Transform edgeL, edgeR;
     public int iteratorLedge = 0;
 
   public  bool hasJumped = false;
@@ -53,7 +53,12 @@ public class Player : MonoBehaviour
 
 
         if (transform.position.x < -3)
-            transform.position = new Vector3(3, transform.position.y, 0);
+        {
+            Vector3 destination = edgeR.position = new Vector3(0, transform.position.y, 0);
+            Vector3 posOffset = destination -transform.position;
+
+            transform.position = destination + posOffset;
+        }
         else if (transform.position.x > 3)
             transform.position = new Vector3(-3, transform.position.y, 0);
     }

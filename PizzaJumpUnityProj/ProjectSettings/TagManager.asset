@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ledge
   - Enemy
+  - Edge
+  - EdgeL
+  - EdgeR
   layers:
   - Default
   - TransparentFX

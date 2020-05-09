@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     GameObject player;
     Color newColor;
 
+  public  GridGraph grid;
+
     public bool gameOver = false;
 
     float multiplier = 0.00002f;
@@ -16,10 +19,22 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         newColor = backroundSprt.color;
+
     }
+
+    
 
     void Update()
     {
+
+        
+        //update the size of the graph grid
+        int depth = (int)player.transform.position.y;
+       // grid.depth = depth;
+     //   grid.Scan();
+
+        
+
         multiplier = player.transform.position.y/1000000;
         if (newColor.a <= 1)
         {
