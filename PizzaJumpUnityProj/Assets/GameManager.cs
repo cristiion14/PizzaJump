@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
         newColor = backroundSprt.color;
 
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     void Update()
@@ -37,8 +38,8 @@ public class GameManager : MonoBehaviour
         // grid.depth = depth;
         //   grid.Scan();
 
-        scoreTxT.text ="SCORE: "+Mathf.RoundToInt( player.transform.position.y).ToString();
-        
+        scoreTxT.text ="SCORE: "+Mathf.RoundToInt( player.GetComponent<Player>().topScore).ToString();
+
 
         multiplier = player.transform.position.y/1000000;
         if (newColor.a <= 1)

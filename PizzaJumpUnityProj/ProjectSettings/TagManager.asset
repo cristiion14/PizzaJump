@@ -9,6 +9,8 @@ TagManager:
   - Edge
   - EdgeL
   - EdgeR
+  - DestructiveLedge
+  - BoostLedge
   layers:
   - Default
   - TransparentFX

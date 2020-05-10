@@ -19,6 +19,7 @@ public class AI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D enemyRB;
 
+    GameObject monsterGFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,8 @@ public class AI : MonoBehaviour
 
         //generate path
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+         monsterGFX = GameObject.Find("MonsterAnim");
     }
 
     void OnPathComplete(Path p)
@@ -85,17 +88,19 @@ public class AI : MonoBehaviour
 
         //snap the position of the sprite towards the moving direction
 
+        
         //if its going right
-        if (force.x > 0f)
+        if (force.x > 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+           monsterGFX.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         // going left
-        else if (force.x < 0f)
+        else if (force.x < 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+           monsterGFX.transform.localScale = new Vector3(1f, 1f, 1f);
 
         }
+        
     }
 }
 

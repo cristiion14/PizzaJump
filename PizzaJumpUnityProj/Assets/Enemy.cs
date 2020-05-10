@@ -8,11 +8,20 @@ public class Enemy : MonoBehaviour
   public  float health;
 
   public  Animator animCtrl;
-
+    GameObject player;
     void Start()
     {
+        player = GameObject.Find("Player");
+
         health = maxHealth;
      //   animCtrl = GetComponentInChildren<Animator>();
+    }
+
+    
+    void Update()
+    {
+
+       // GetComponent<AudioSource>().volume = 
     }
 
     public void TakeDmg(int damage)
@@ -34,7 +43,8 @@ public class Enemy : MonoBehaviour
         if(other.collider.tag == "Player")
         {
             Player player = other.collider.GetComponent<Player>();
-            player.TakeDMG(10);
+            player.wasHit = true;
+         //   player.TakeDMG(100);
             animCtrl.SetBool("IsTouching", true);
 
         }
@@ -45,6 +55,7 @@ public class Enemy : MonoBehaviour
         if (other.collider.tag == "Player")
         {
             animCtrl.SetBool("IsTouching", false);
+            
         }
     }
 }
