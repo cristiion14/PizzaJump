@@ -35,13 +35,14 @@ public class PlayerShoot : MonoBehaviour
   
     void Shoot()
     {
-
-        //sound effect
-        GetComponent<AudioSource>().clip = GetComponent<Player>().hitSound;
-        GetComponent<AudioSource>().Play();
-        //instantiate the effect
-        GameObject shootEffect = Instantiate(projectile, transform.position, Quaternion.identity);
-
+        if (Time.timeScale > 0)
+        {
+            //sound effect
+            GetComponent<AudioSource>().clip = GetComponent<Player>().hitSound;
+            GetComponent<AudioSource>().Play();
+            //instantiate the effect
+            GameObject shootEffect = Instantiate(projectile, transform.position, Quaternion.identity);
+        }
 
     }
     

@@ -12,11 +12,12 @@ public class Bullet : MonoBehaviour
     float timer = 5;
 
     GameObject player;
+    GameObject GM;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-
+        GM = GameObject.Find("GM");
 
         rb.velocity = (player.GetComponent<PlayerShoot>().direction - transform.position).normalized * speed ;
         //rb.AddForce(player.GetComponent<PlayerShoot>().direction, ForceMode2D.Impulse);
@@ -45,18 +46,38 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Enemy enemy = other.transform.GetComponent<Enemy>();
-            DoHitEffect(enemy.transform.position, transform.up);
+
+
+            //disable enemy ai
+            enemy.GetComponent<AI>().enabled = false;
+
+            //do hit effect
+        //    DoHitEffect(enemy.transform.position, transform.up);
+            GM.GetComponentInChildren<DissolveShader>().isDissolving = true;
+
+            //stop enemy sound
+            enemy.GetComponentInChildren<AudioSource>().Stop();
+            
+            //play enemy death sound
+            enemy.GetComponent<AudioSource>().Play();
             hasHit = true;
 
-            enemy.TakeDmg(100);
-            Destroy(gameObject);
+            //destroy bullet and enemy
+            Destroy(other.gameObject, .5f);
+            Destroy(gameObject,.1f);
         }
         else
             transform.GetComponent<PolygonCollider2D>().isTrigger = true;
     }
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
-    //    hasHit = false;
-        transform.GetComponent<PolygonCollider2D>().isTrigger = false;
+        if (other.tag == "Enemy")
+        {
+      //      Enemy enemy = other.transform.GetComponent<Enemy>();
+        //    enemy.GetComponentInChildren<AudioSource>().clip = enemy.enemySound;
+          //  enemy.GetComponentInChildren<AudioSource>().Play();
+            //    hasHit = false;
+            transform.GetComponent<PolygonCollider2D>().isTrigger = false;
+        }
     }
 }

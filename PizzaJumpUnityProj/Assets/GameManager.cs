@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
 
     float multiplier = 0.00002f;
 
-    
+    public Button pauseBTN;
+
+    bool hasPressedPause = false;
+    public Sprite pauseSprite, playSprite;
 
     void Awake()
     {
@@ -31,12 +34,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
-        
-        //update the size of the graph grid
-        int depth = (int)player.transform.position.y;
-        // grid.depth = depth;
-        //   grid.Scan();
 
         scoreTxT.text ="SCORE: "+Mathf.RoundToInt( player.GetComponent<Player>().topScore).ToString();
 
@@ -57,6 +54,33 @@ public class GameManager : MonoBehaviour
 
 
         backroundSprt.color = newColor;
+
+        //UI for pause/play button
+        if (hasPressedPause)
+        {
+            pauseBTN.GetComponent<Image>().sprite = playSprite;
+            Time.timeScale = 0;
+            Camera.main.GetComponent<AudioListener>().enabled = false;
+        }
+
+        else
+        {
+            pauseBTN.GetComponent<Image>().sprite = pauseSprite;
+            Time.timeScale = 1;
+            Camera.main.GetComponent<AudioListener>().enabled = true;
+
+        }
+
+
+    }
+
+
+    public void PauseBTN()
+    {
+        if (!hasPressedPause)
+            hasPressedPause = true;
+        else
+            hasPressedPause = false;
     }
 
     void OnCollisionEnter2D(Collision2D other)

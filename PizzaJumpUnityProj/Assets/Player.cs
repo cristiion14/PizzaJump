@@ -21,12 +21,15 @@ public class Player : MonoBehaviour
 
     public float topScore = 0;
 
+
+
     public AudioClip hitSound;
     public AudioClip DeathSound;
 
     public AudioSource deathSoundAudioSource;
 
    public bool wasHit = false;
+    public bool gameOver = false;
    public float getHealth()
     {
         return health;
@@ -92,7 +95,7 @@ public class Player : MonoBehaviour
     /// <returns></returns>
     IEnumerator DeathSoundEnum()
     {
-        yield return new WaitForSeconds(.5f);
+       
         if (DeathSoundIterator == 0)
         {
             GetComponent<AudioSource>().clip = DeathSound;
@@ -125,8 +128,8 @@ public class Player : MonoBehaviour
         if (deathSoundAudioSource == null)
         {
             health = maxHealth;
-
-            SceneManager.LoadScene(0);
+            gameOver = true;
+            //SceneManager.LoadScene(2);
         }
 
         

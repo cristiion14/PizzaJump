@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
 
   public  Animator animCtrl;
     GameObject player;
+
+   public AudioClip enemyDeathSound;
+    public AudioClip enemySound;
     void Start()
     {
         player = GameObject.Find("Player");
