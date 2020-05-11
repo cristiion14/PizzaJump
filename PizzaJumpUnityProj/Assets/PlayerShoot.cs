@@ -18,9 +18,9 @@ public class PlayerShoot : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && Time.time>nextTimeToFire)
         {
             direction = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            
-            
 
+
+           // nextTimeToFire += 3;
             direction.z = 0;
             Debug.LogError(direction);
             Shoot();

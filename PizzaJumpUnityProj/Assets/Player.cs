@@ -28,18 +28,13 @@ public class Player : MonoBehaviour
 
     public AudioSource deathSoundAudioSource;
 
+    public Material dissolveMaterial;
+    float dissolveMeeter = 1;
+
    public bool wasHit = false;
     public bool gameOver = false;
-   public float getHealth()
-    {
-        return health;
-    }
 
-    public void setHealth(float newHealth)
-    {
-        health = newHealth;
-    }
-
+public    bool hasPressedPause = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -58,6 +53,9 @@ public class Player : MonoBehaviour
 
         if (wasHit)
         {
+            dissolveMeeter -= Time.deltaTime;
+            GetComponent<SpriteRenderer>().material = dissolveMaterial;
+            GetComponent<SpriteRenderer>().material.SetFloat("_Fade", dissolveMeeter);
             Die(0.5f);
         }
     }
@@ -67,12 +65,12 @@ public class Player : MonoBehaviour
        
 
 
-        if (transform.position.x < -5)
+        if (transform.position.x < -3)
         {
 
             transform.position = new Vector3(3, transform.position.y, 0);
         }
-        else if (transform.position.x > 5)
+        else if (transform.position.x > 3)
             transform.position = new Vector3(-3, transform.position.y, 0);
     }
 

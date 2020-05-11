@@ -12,7 +12,8 @@ public class DissolveShader : MonoBehaviour
 
     void Start()
     {
-      //  dissolve = GetComponent<Material>();
+        //  dissolve = GetComponent<Material>();
+        dissolve.SetFloat("_Fade", 1);
     }
 
     void Update()

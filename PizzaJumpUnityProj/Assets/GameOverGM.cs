@@ -21,7 +21,7 @@ public class GameOverGM : MonoBehaviour
 
     void DisableComponents()
     {
-      //  Time.timeScale = 0;
+        //  Time.timeScale = 0;
         gameOverCanvas.SetActive(true);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         panel.SetActive(false);

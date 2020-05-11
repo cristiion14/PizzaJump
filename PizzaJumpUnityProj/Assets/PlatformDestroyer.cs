@@ -28,11 +28,11 @@ public class PlatformDestroyer : MonoBehaviour
             {
 
                 Destroy(other.gameObject);
-                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-4, 4), 
+                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.8f, 2.8f), 
                     GetComponentInParent<Player>().transform.position.y + 3.5f+Random.Range(0.5f, 1f)), Quaternion.identity);
             }
             else
-                other.transform.position = new Vector2(Random.Range(-4, 4), GetComponentInParent<Player>().transform.position.y +
+                other.transform.position = new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y +
            (3.5f + Random.Range(0.5f, 1f)));
 
         }
@@ -43,14 +43,14 @@ public class PlatformDestroyer : MonoBehaviour
        //     {
 
          //       Debug.Log("Random");
-           //     other.transform.position = new Vector2(Random.Range(-4, 4), GetComponentInParent<Player>().transform.position.y +
+           //     other.transform.position = new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y +
        //  (3.5f + Random.Range(0.5f, 1f)));
          //   }
            // else
             //{
                 Debug.Log("ELSE");
                 Destroy(other.gameObject);
-                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-4, 4),
+                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.8f, 2.8f),
                     GetComponentInParent<Player>().transform.position.y + 3.5f + Random.Range(0.5f, 1f)), Quaternion.identity);
             }
         //}
@@ -61,14 +61,14 @@ public class PlatformDestroyer : MonoBehaviour
             if (Random.Range(1, 20) == 5)
             {
                 Destroy(instantiatedObj);
-                    Instantiate(boostPlatformPrefab, new Vector2(Random.Range(-4, 4),
+                    Instantiate(boostPlatformPrefab, new Vector2(Random.Range(-2.8f, 2.8f),
                      GetComponentInParent<Player>().transform.position.y + 3.5f + Random.Range(0.5f, 1f)), Quaternion.identity);
                 Debug.LogError("A Intrat");
 
             }
             else
             {
-                other.transform.position = new Vector2(Random.Range(-4, 4), GetComponentInParent<Player>().transform.position.y +
+                other.transform.position = new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y +
 (3.5f + Random.Range(0.5f, 1f)));
             }
                     

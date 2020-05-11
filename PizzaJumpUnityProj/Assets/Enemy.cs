@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
   public  Animator animCtrl;
     GameObject player;
 
+   public GameObject monsterGFX;
+
    public AudioClip enemyDeathSound;
     public AudioClip enemySound;
     void Start()
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
 
         health = maxHealth;
+        
      //   animCtrl = GetComponentInChildren<Animator>();
     }
 

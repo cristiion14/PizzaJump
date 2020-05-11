@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
 
     public Button pauseBTN;
 
-    bool hasPressedPause = false;
+   public bool hasPressedPause = false;
     public Sprite pauseSprite, playSprite;
+
+    public Camera mainCam;
 
     void Awake()
     {
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+        player.GetComponent<Player>().hasPressedPause = hasPressedPause;
         scoreTxT.text ="SCORE: "+Mathf.RoundToInt( player.GetComponent<Player>().topScore).ToString();
 
 
@@ -60,14 +63,14 @@ public class GameManager : MonoBehaviour
         {
             pauseBTN.GetComponent<Image>().sprite = playSprite;
             Time.timeScale = 0;
-            Camera.main.GetComponent<AudioListener>().enabled = false;
+            mainCam.GetComponent<AudioListener>().enabled = false;
         }
 
         else
         {
             pauseBTN.GetComponent<Image>().sprite = pauseSprite;
             Time.timeScale = 1;
-            Camera.main.GetComponent<AudioListener>().enabled = true;
+            mainCam.GetComponent<AudioListener>().enabled = true;
 
         }
 

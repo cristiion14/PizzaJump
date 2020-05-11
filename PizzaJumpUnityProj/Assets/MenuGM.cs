@@ -35,7 +35,7 @@ public class MenuGM : MonoBehaviour
         dissolveTxt.SetFloat("_Fade", fade);
 
         if (canStartGame)
-            StartCoroutine(StartGame(1.5f));
+            StartCoroutine(StartGame(.5f));
     }
 
     IEnumerator StartGame(float s)

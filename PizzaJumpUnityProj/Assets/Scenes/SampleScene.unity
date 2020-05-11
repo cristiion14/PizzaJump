@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -521,6 +521,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: f5be97fd580691b44af5ae76b77331e8, type: 3}
   DeathSound: {fileID: 8300000, guid: d8a49fad282d46a4ca0f09f5d4aeabff, type: 3}
   deathSoundAudioSource: {fileID: 1199926230}
+  dissolveMaterial: {fileID: 2100000, guid: 08d786cb31f59664890fd6ec62a26ddd, type: 2}
   wasHit: 0
   gameOver: 0
 --- !u!114 &160704921
@@ -1497,7 +1498,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -26.199997}
-  m_SizeDelta: {x: 458, y: 52.399994}
+  m_SizeDelta: {x: 564, y: 52.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698379568
 MonoBehaviour:
@@ -2536,6 +2537,7 @@ MonoBehaviour:
   pauseBTN: {fileID: 1903860157}
   pauseSprite: {fileID: 21300000, guid: 0bc8e74cc2fd84d42ae98ff23a7d8ee9, type: 3}
   playSprite: {fileID: 21300000, guid: 920e7501c6406e84ea2250ba5532df27, type: 3}
+  mainCam: {fileID: 519420031}
 --- !u!4 &1704752713
 Transform:
   m_ObjectHideFlags: 0
@@ -3196,6 +3198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   animCtrl: {fileID: 1284778828}
+  monsterGFX: {fileID: 1284778827}
   enemyDeathSound: {fileID: 8300000, guid: 21e957ed2dbbdfa4c86ba209258b32c3, type: 3}
   enemySound: {fileID: 8300000, guid: 75155e5829cd0da4e96c6fb58d44cace, type: 3}
 --- !u!82 &1947764983
