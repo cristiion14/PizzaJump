@@ -5,9 +5,9 @@ using UnityEngine;
 public class DoodleLedge : MonoBehaviour
 {
     public float jumpForce = 10f;
-    Vector2 newPos = new Vector2(13, 13);
-    Vector2 APointAnim = Vector2.zero;
-    Vector2 BPointAnim = Vector2.zero;
+    Vector3 newPos = new Vector3(13, 13, 0);
+    Vector3 APointAnim = Vector3.zero;
+    Vector3 BPointAnim = Vector3.zero;
 
    public AudioClip boostLedgeSound;
     public AudioClip ledgeSound;
@@ -42,12 +42,15 @@ public class DoodleLedge : MonoBehaviour
             BPointAnim = new Vector2(3, gameObject.transform.position.y);
 
 
-            if (Vector2.Distance(transform.position, APointAnim)<.5f)
+            float distance = (transform.position - APointAnim).sqrMagnitude;
+            if (distance <= 1)
                 newPos = BPointAnim;
 
-            if (Vector2.Distance(transform.position, BPointAnim) < .5f)
+            float distance2 = (transform.position - BPointAnim).sqrMagnitude;
+            if (distance2 <= 1)
                 newPos = APointAnim;
-
+                
+             
 
 
 
@@ -74,12 +77,12 @@ public class DoodleLedge : MonoBehaviour
 
                 if (gameObject.tag=="BoostLedge")
                 {
-                    rb.AddForce(Vector2.up * 2000);
+                    rb.AddForce(Vector2.up * 1800);
                 }
 
                 if (gameObject.tag == "DestructiveLedge" && GetComponent<Animator>() != null)
                 {
-               
+                    GetComponent<Animator>().enabled = true;
                     Destroy(gameObject, 1);
 
                 }
@@ -96,7 +99,7 @@ public class DoodleLedge : MonoBehaviour
                     velocity.y = jumpForce;
                     rb.velocity = velocity;
                     */
-                    rb.AddForce(Vector3.up * 1200);
+                    rb.AddForce(Vector3.up *1000);
                 }
             }
         }
