@@ -63,6 +63,7 @@ public class DoodleLedge : MonoBehaviour
 
         if (other.collider.tag == "Player")
         {
+                Rigidbody2D rb = other.collider.GetComponent<Rigidbody2D>();
             
 
                 //check to see if the obj is coming from top or bottom
@@ -73,7 +74,7 @@ public class DoodleLedge : MonoBehaviour
 
                 if (gameObject.tag=="BoostLedge")
                 {
-     
+                    rb.AddForce(Vector2.up * 2000);
                 }
 
                 if (gameObject.tag == "DestructiveLedge" && GetComponent<Animator>() != null)
@@ -86,14 +87,16 @@ public class DoodleLedge : MonoBehaviour
                 //BOUNCY
 
                 //get the rigid body of the collided obj
-                Rigidbody2D rb = other.collider.GetComponent<Rigidbody2D>();
 
                 if (rb != null)
                 {
                     //modify the velocity of the rb
+                    /*
                     Vector2 velocity = rb.velocity;
                     velocity.y = jumpForce;
                     rb.velocity = velocity;
+                    */
+                    rb.AddForce(Vector3.up * 1200);
                 }
             }
         }

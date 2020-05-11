@@ -49,10 +49,11 @@ public class GameManager : MonoBehaviour
          else if(newColor.g != 0)
         {
             newColor.g -= multiplier;
+            newColor.a = 1;
         }
         else if(newColor.g <=0)
         {
-            newColor.r -= multiplier;
+          
         }
 
 

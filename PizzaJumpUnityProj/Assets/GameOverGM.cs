@@ -25,6 +25,7 @@ public class GameOverGM : MonoBehaviour
         gameOverCanvas.SetActive(true);
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         panel.SetActive(false);
+        GetComponent<GameManager>().mainCam.GetComponent<AudioListener>().enabled = false;
     }
 
     void Update()

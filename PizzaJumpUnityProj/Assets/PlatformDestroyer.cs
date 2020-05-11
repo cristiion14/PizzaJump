@@ -8,6 +8,8 @@ public class PlatformDestroyer : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject destructivePlatformPrefab;
     public GameObject boostPlatformPrefab;
+    public GameObject monsterPrefab;
+
     GameObject newPlatform;
     GameObject instantiatedObj;
 
@@ -22,6 +24,13 @@ public class PlatformDestroyer : MonoBehaviour
         if(other.tag=="Ledge")
             Destroy(other.gameObject);
             */
+
+        if(Random.Range(1, 40)==14)
+        {
+      //      Instantiate(monsterPrefab, new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y + 3.5f + Random.Range(2, 5f)), Quaternion.identity);
+        //    Debug.LogError("A SPAUNAT MONSTRU");
+        }
+
         if (other.tag == "Ledge")
         {
             if(Random.Range(1,20)==5)
