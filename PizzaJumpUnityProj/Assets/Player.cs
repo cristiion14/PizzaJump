@@ -28,13 +28,15 @@ public class Player : MonoBehaviour
 
     public AudioSource deathSoundAudioSource;
 
-    public Material dissolveMaterial;
+    //public Material dissolveMaterial;
     float dissolveMeeter = 1;
 
    public bool wasHit = false;
     public bool gameOver = false;
 
 public    bool hasPressedPause = false;
+
+    public GameObject playerDeathParticle;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,9 +56,9 @@ public    bool hasPressedPause = false;
         if (wasHit)
         {
             dissolveMeeter -= Time.deltaTime;
-            GetComponent<SpriteRenderer>().material = dissolveMaterial;
-            GetComponent<SpriteRenderer>().material.SetFloat("_Fade", dissolveMeeter);
-            Die(0.5f);
+     //       GetComponent<SpriteRenderer>().material = dissolveMaterial;
+       //     GetComponent<SpriteRenderer>().material.SetFloat("_Fade", dissolveMeeter);
+            Die(.5f);
         }
     }
 
@@ -65,13 +67,13 @@ public    bool hasPressedPause = false;
        
 
 
-        if (transform.position.x < -3)
+        if (transform.position.x < -3.2f)
         {
 
-            transform.position = new Vector3(3, transform.position.y, 0);
+            transform.position = new Vector3(3.2f, transform.position.y, 0);
         }
-        else if (transform.position.x > 3)
-            transform.position = new Vector3(-3, transform.position.y, 0);
+        else if (transform.position.x > 3.2f)
+            transform.position = new Vector3(-3.2f, transform.position.y, 0);
     }
 
   public  void TakeDMG(float damage)
@@ -127,6 +129,14 @@ public    bool hasPressedPause = false;
         {
             health = maxHealth;
             gameOver = true;
+
+            //destroy all monsters
+            GameObject[] monstersToBeDestroyed = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject monster in monstersToBeDestroyed)
+            {
+                Destroy(monster);
+            }
+
             //SceneManager.LoadScene(2);
         }
 

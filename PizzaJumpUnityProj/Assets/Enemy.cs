@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
    public GameObject monsterGFX;
 
+    public GameObject enemyDeathParticle;
    public AudioClip enemyDeathSound;
     public AudioClip enemySound;
     void Start()
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
          //   player.TakeDMG(100);
             animCtrl.SetBool("IsTouching", true);
 
+            Instantiate(player.playerDeathParticle, player.transform.position, Quaternion.identity);
         }
     }
 

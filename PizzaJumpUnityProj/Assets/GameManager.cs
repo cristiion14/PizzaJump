@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Pathfinding;
 using TMPro;
@@ -51,9 +52,15 @@ public class GameManager : MonoBehaviour
             newColor.g -= multiplier;
             newColor.a = 1;
         }
-        else if(newColor.g <=0)
+         if(newColor.g <=110)
         {
-          
+            newColor.r -= multiplier;
+        }
+
+         if(newColor.r <=100)
+        {
+            newColor.g += multiplier;
+
         }
 
 
@@ -77,7 +84,10 @@ public class GameManager : MonoBehaviour
 
 
     }
-
+    public void BackBTN()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     public void PauseBTN()
     {

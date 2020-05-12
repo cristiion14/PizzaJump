@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-        void DoHitEffect(Vector3 _pos, Vector3 _normal)
+        void DoHitEffect(GameObject impactEffect, Vector3 _pos, Vector3 _normal)
     {
         GameObject _hitEffect = Instantiate(impactEffect, _pos, Quaternion.LookRotation(_normal));
         Destroy(_hitEffect, 2f);
@@ -47,13 +47,14 @@ public class Bullet : MonoBehaviour
         {
             Enemy enemy = other.transform.GetComponent<Enemy>();
 
+            other.isTrigger = true;
 
             //disable enemy ai
             enemy.GetComponent<AI>().enabled = false;
 
             //do hit effect
-        //    DoHitEffect(enemy.transform.position, transform.up);
-            GM.GetComponentInChildren<DissolveShader>().isDissolving = true;
+            DoHitEffect(enemy.enemyDeathParticle, transform.position, transform.up);
+           
 
             //stop enemy sound
             enemy.GetComponentInChildren<AudioSource>().Stop();
@@ -78,6 +79,9 @@ public class Bullet : MonoBehaviour
           //  enemy.GetComponentInChildren<AudioSource>().Play();
             //    hasHit = false;
             transform.GetComponent<PolygonCollider2D>().isTrigger = false;
+
+            other.isTrigger = false;
+
         }
     }
 }

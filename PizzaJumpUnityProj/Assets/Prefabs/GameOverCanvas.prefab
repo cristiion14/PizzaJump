@@ -262,11 +262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 553049957908854982}
     m_Modifications:
-    - target: {fileID: 8325717555914167350, guid: 539d447a41ddb084c91620220bc7339f,
-        type: 3}
-      propertyPath: m_Name
-      value: TapToStart
-      objectReference: {fileID: 0}
     - target: {fileID: 8325717555914167305, guid: 539d447a41ddb084c91620220bc7339f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -371,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325717555914167350, guid: 539d447a41ddb084c91620220bc7339f,
+        type: 3}
+      propertyPath: m_Name
+      value: TapToStart
       objectReference: {fileID: 0}
     - target: {fileID: 8325717555914167304, guid: 539d447a41ddb084c91620220bc7339f,
         type: 3}

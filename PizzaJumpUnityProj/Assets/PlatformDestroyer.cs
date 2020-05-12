@@ -13,6 +13,36 @@ public class PlatformDestroyer : MonoBehaviour
     GameObject newPlatform;
     GameObject instantiatedObj;
 
+   public List<GameObject> addedEnemies = new List<GameObject>();
+    GameObject instantiatedMonstr;
+
+    int monsterInstantiated = 0;
+    Vector2 playerLastPos =Vector2.zero;
+    float nextTimeToSpawn = 10;
+    void Update()
+    {
+
+        if (Time.time > nextTimeToSpawn)
+        {
+            StartCoroutine(InstantiateMonstr());
+            nextTimeToSpawn += 10;
+            Debug.LogError("MONSTRU IN");
+        }
+        monsterInstantiated = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+    }
+
+
+    IEnumerator InstantiateMonstr()
+    {
+        yield return new WaitForSeconds(1);
+        if (monsterInstantiated < 2)
+        {
+            addedEnemies.Add(Instantiate(monsterPrefab, new Vector2(Random.Range(-4f, 5f), GetComponentInParent<Player>().transform.position.y - Random.Range(10, 20)), Quaternion.identity));
+            monsterInstantiated++;
+        }
+      
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,64 +55,48 @@ public class PlatformDestroyer : MonoBehaviour
             Destroy(other.gameObject);
             */
 
-        if(Random.Range(1, 40)==14)
-        {
-      //      Instantiate(monsterPrefab, new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y + 3.5f + Random.Range(2, 5f)), Quaternion.identity);
-        //    Debug.LogError("A SPAUNAT MONSTRU");
-        }
+         playerLastPos = GetComponentInParent<Player>().transform.position;
+      
 
         if (other.tag == "Ledge")
         {
-            if(Random.Range(1,20)==5)
-            {
-
-                Destroy(other.gameObject);
-                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.8f, 2.8f), 
-                    GetComponentInParent<Player>().transform.position.y + 3.5f+Random.Range(0.5f, 1f)), Quaternion.identity);
-            }
-            else
-                other.transform.position = new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y +
-           (3.5f + Random.Range(0.5f, 1f)));
+         
+                other.transform.position = new Vector2(Random.Range(-2.5f, 2.5f), GetComponentInParent<Player>().transform.position.y +
+           (2f + Random.Range(0.5f, 1f)));
 
         }
 
-        else if (other.tag == "DestructiveLedge")
+         if (other.tag == "DestructiveLedge")
         {
      //       if (Random.Range(1, 20) == 5)
        //     {
 
          //       Debug.Log("Random");
-           //     other.transform.position = new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y +
+           //     other.transform.position = new Vector2(Random.Range(-2.5f, 2.5f), GetComponentInParent<Player>().transform.position.y +
        //  (3.5f + Random.Range(0.5f, 1f)));
          //   }
            // else
             //{
                 Debug.Log("ELSE");
                 Destroy(other.gameObject);
-                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.8f, 2.8f),
-                    GetComponentInParent<Player>().transform.position.y + 3.5f + Random.Range(0.5f, 1f)), Quaternion.identity);
+                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
+                    GetComponentInParent<Player>().transform.position.y + 2f + Random.Range(0.5f, 1f)), Quaternion.identity);
             }
-        //}
+     
 
-        else if (other.tag == "BoostLedge")
+        //   instantiatedObj = other.gameObject;
+        if (Random.Range(1, 20) == 5)
         {
-         //   instantiatedObj = other.gameObject;
-            if (Random.Range(1, 20) == 5)
-            {
-                Destroy(instantiatedObj);
-                    Instantiate(boostPlatformPrefab, new Vector2(Random.Range(-2.8f, 2.8f),
-                     GetComponentInParent<Player>().transform.position.y + 3.5f + Random.Range(0.5f, 1f)), Quaternion.identity);
-                Debug.LogError("A Intrat");
+          instantiatedObj=  Instantiate(boostPlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
+             GetComponentInParent<Player>().transform.position.y + 2 + Random.Range(0.5f, 1f)), Quaternion.identity);
 
-            }
-            else
-            {
-                other.transform.position = new Vector2(Random.Range(-2.8f, 2.8f), GetComponentInParent<Player>().transform.position.y +
-(3.5f + Random.Range(0.5f, 1f)));
-            }
-                    
-            
+            Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
+             instantiatedObj.transform.position.y + 2 + Random.Range(0.5f, 2f)), Quaternion.identity);
+
+
         }
+        if (other.tag == "BoostLedge")
+            Destroy(other.gameObject);
 
     }
 }

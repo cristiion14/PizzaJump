@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuGM : MonoBehaviour
@@ -10,6 +11,8 @@ public class MenuGM : MonoBehaviour
     bool hasPressedStart = false;
     bool canStartGame = false;
 
+    public int highScore;
+    public Text highScoreTxT;
     void Awake()
     {
         dissolveTxt.SetFloat("_Fade", 1);
@@ -33,7 +36,8 @@ public class MenuGM : MonoBehaviour
             }
         }
         dissolveTxt.SetFloat("_Fade", fade);
-
+        highScore = PlayerPrefs.GetInt("HIGHSCORE");
+        highScoreTxT.text ="HIGHSCORE "+ highScore.ToString();
         if (canStartGame)
             StartCoroutine(StartGame(.5f));
     }

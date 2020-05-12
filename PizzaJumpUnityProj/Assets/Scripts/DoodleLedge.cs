@@ -50,11 +50,6 @@ public class DoodleLedge : MonoBehaviour
             if (distance2 <= 1)
                 newPos = APointAnim;
                 
-             
-
-
-
-
             transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime);
                 
         }
@@ -77,7 +72,7 @@ public class DoodleLedge : MonoBehaviour
 
                 if (gameObject.tag=="BoostLedge")
                 {
-                    rb.AddForce(Vector2.up * 1800);
+                    rb.AddForce(Vector2.up * 1900);
                 }
 
                 if (gameObject.tag == "DestructiveLedge" && GetComponent<Animator>() != null)
@@ -99,7 +94,7 @@ public class DoodleLedge : MonoBehaviour
                     velocity.y = jumpForce;
                     rb.velocity = velocity;
                     */
-                    rb.AddForce(Vector3.up *1000);
+                    rb.AddForce(Vector3.up *1200);
                 }
             }
         }

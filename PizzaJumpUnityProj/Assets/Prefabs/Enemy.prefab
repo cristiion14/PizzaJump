@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1766263967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1766263968}
+  m_Layer: 9
+  m_Name: ParticleHitPlaceHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1766263968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766263967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.784, y: 1.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3194354663450829461}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3194354663576420653
 Animator:
   serializedVersion: 3
@@ -60,9 +90,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 75155e5829cd0da4e96c6fb58d44cace, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8b5710cfe1a106d4fb7b3c485de8bf54, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.168
+  m_Volume: 0.182
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -180,6 +210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6693094140616343722}
+  - {fileID: 1766263968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4dd842c9b5ebfb46a91f28365761224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 600
-  nextWaypointDistance: 3
+  speed: 800
+  nextWaypointDistance: 1.5
 --- !u!50 &3194354663450829467
 Rigidbody2D:
   serializedVersion: 4
@@ -277,6 +308,7 @@ MonoBehaviour:
   health: 0
   animCtrl: {fileID: 3194354663576420653}
   monsterGFX: {fileID: 2527558064968691508}
+  enemyDeathParticle: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
   enemyDeathSound: {fileID: 8300000, guid: 21e957ed2dbbdfa4c86ba209258b32c3, type: 3}
   enemySound: {fileID: 8300000, guid: 75155e5829cd0da4e96c6fb58d44cace, type: 3}
 --- !u!82 &3194354663450829462
@@ -442,21 +474,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6168519966275502984, guid: d476546cfbf2ae448a4b261eed2e164c,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 51ab1b10b589c6344b43344f84e7c9d1, type: 2}
-    - target: {fileID: 8204135220101984264, guid: d476546cfbf2ae448a4b261eed2e164c,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 51ab1b10b589c6344b43344f84e7c9d1, type: 2}
-    - target: {fileID: 2147705879555574500, guid: d476546cfbf2ae448a4b261eed2e164c,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 51ab1b10b589c6344b43344f84e7c9d1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -729779851566528492, guid: d476546cfbf2ae448a4b261eed2e164c,
     type: 3}

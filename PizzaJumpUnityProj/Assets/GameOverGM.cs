@@ -8,14 +8,16 @@ using UnityEngine.SceneManagement;
 public class GameOverGM : MonoBehaviour
 {
     bool hasPressedRestart = false;
-    public Text score;
+    public Text scoreTxT;
+    int highScore = 0;
+    int score = 0;
     GameObject player;
     public GameObject gameOverCanvas;
     public GameObject panel;
     void Awake()
     {
         player = GameObject.Find("Player");
-
+        highScore = PlayerPrefs.GetInt("HIGHSCORE");
         gameOverCanvas.SetActive(false);
     }
 
@@ -30,16 +32,28 @@ public class GameOverGM : MonoBehaviour
 
     void Update()
     {
+
         if (player.GetComponent<Player>().gameOver)
         {
             DisableComponents();
 
-            if (Input.GetMouseButtonDown(0))
+            score = Mathf.RoundToInt(player.GetComponent<Player>().topScore);
+
+            if (score > highScore)
+            {
+                highScore = score;
+                PlayerPrefs.SetInt("HIGHSCORE", highScore);
+            }
+
+
+            scoreTxT.text = "SCORE: " + score.ToString();
+
+            if (Input.GetMouseButtonDown(0) || Input.touchCount>0)
                 SceneManager.LoadScene(1);
 
         }
 
-        score.text ="HIGHSCORE: "+ Mathf.RoundToInt( player.GetComponent<Player>().topScore).ToString();
+
 
     }
 
