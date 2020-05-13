@@ -27,6 +27,8 @@ public class PlatformDestroyer : MonoBehaviour
             StartCoroutine(InstantiateMonstr());
             nextTimeToSpawn += 10;
             Debug.LogError("MONSTRU IN");
+
+            x = 0;
         }
         monsterInstantiated = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
@@ -44,6 +46,7 @@ public class PlatformDestroyer : MonoBehaviour
       
     }
 
+    int x = 0;
     void OnTriggerEnter2D(Collider2D other)
     {
         /*
@@ -83,16 +86,19 @@ public class PlatformDestroyer : MonoBehaviour
                     GetComponentInParent<Player>().transform.position.y + 2f + Random.Range(0.5f, 1f)), Quaternion.identity);
             }
      
-
         //   instantiatedObj = other.gameObject;
         if (Random.Range(1, 20) == 5)
         {
           instantiatedObj=  Instantiate(boostPlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
              GetComponentInParent<Player>().transform.position.y + 2 + Random.Range(0.5f, 1f)), Quaternion.identity);
 
-            Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
-             instantiatedObj.transform.position.y + 2 + Random.Range(0.5f, 2f)), Quaternion.identity);
-
+            if (x == 0)
+            {
+                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
+                 instantiatedObj.transform.position.y + 2 + Random.Range(0.5f, 2f)), Quaternion.identity);
+                x = 1;
+            }
+            
 
         }
         if (other.tag == "BoostLedge")
