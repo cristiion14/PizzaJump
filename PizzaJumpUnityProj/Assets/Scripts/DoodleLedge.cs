@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoodleLedge : MonoBehaviour
 {
+	//This code is taking care of the ledge logic 
     public float jumpForce = 10f;
     Vector3 newPos = new Vector3(13, 13, 0);
     Vector3 APointAnim = Vector3.zero;
