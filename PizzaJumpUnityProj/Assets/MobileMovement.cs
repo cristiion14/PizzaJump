@@ -16,18 +16,20 @@ public class MobileMovement : MonoBehaviour
     }
     void Update()
     {
+        //velocity vector
         dirX = Input.acceleration.x * player.speed; ;
     }
 
     void FixedUpdate()
     {
-
+        //left -right accelerometer movement
         if (dirX!=0)
         {
             Vector2 velocity = rb.velocity;
             velocity.x = dirX;
             rb.velocity = velocity;
         }
+        //keyboard movement for testing
         else
         {
             Vector2 velocity = rb.velocity;

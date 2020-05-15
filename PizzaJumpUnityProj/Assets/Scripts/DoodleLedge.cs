@@ -37,7 +37,7 @@ public class DoodleLedge : MonoBehaviour
     {
         if (gameObject.tag == "DestructiveLedge")
         {
-
+            //Destructible ledge lerp movement
             APointAnim = new Vector2(-3, gameObject.transform.position.y);
             BPointAnim = new Vector2(3, gameObject.transform.position.y);
 
@@ -69,12 +69,14 @@ public class DoodleLedge : MonoBehaviour
             {
                 GetComponent<AudioSource>().Play();
 
+                //boost ledge force
 
                 if (gameObject.tag=="BoostLedge")
                 {
                     rb.AddForce(Vector2.up * 1900);
                 }
 
+                //Starting the animation on collision and destroying the object after
                 if (gameObject.tag == "DestructiveLedge" && GetComponent<Animator>() != null)
                 {
                     GetComponent<Animator>().enabled = true;
@@ -82,18 +84,9 @@ public class DoodleLedge : MonoBehaviour
 
                 }
                 
-                //BOUNCY
-
-                //get the rigid body of the collided obj
-
+                //BOUNCE effetct
                 if (rb != null)
                 {
-                    //modify the velocity of the rb
-                    /*
-                    Vector2 velocity = rb.velocity;
-                    velocity.y = jumpForce;
-                    rb.velocity = velocity;
-                    */
                     rb.AddForce(Vector3.up *1200);
                 }
             }

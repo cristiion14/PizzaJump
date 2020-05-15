@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
          //   player.TakeDMG(100);
             animCtrl.SetBool("IsTouching", true);
 
-            Instantiate(player.playerDeathParticle, player.transform.position, Quaternion.identity);
+//            Instantiate(player.playerDeathParticle, player.transform.position, Quaternion.identity);
         }
     }
 

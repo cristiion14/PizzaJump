@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -37,10 +38,15 @@ public class Player : MonoBehaviour
 public    bool hasPressedPause = false;
 
     public GameObject playerDeathParticle;
+
+    GameObject GM;
+    CustomSampler sampler;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
+        GM = GameObject.Find("GM");
+
     }
 
     void Update()
@@ -50,6 +56,8 @@ public    bool hasPressedPause = false;
         if (transform.position.y < (positionTracker.y - 10))
             Die(2);
 
+        
+            
         if (rb.velocity.y > 0 && transform.position.y > topScore)
             topScore = transform.position.y;
 
@@ -164,6 +172,21 @@ public    bool hasPressedPause = false;
             iteratorLedge++;
             hasJumped = true;
         }
+
+        if (other.collider.name == "lastPlatform")
+        {
+          
+            List<GameObject> toBeDeleted = GM.GetComponent<LevelGenerator>().instantiatedPlatform;
+            for (int i = 0; i < toBeDeleted.Count-1; i++)
+            {
+                toBeDeleted.Remove(toBeDeleted[i]);
+                Destroy(toBeDeleted[i]);
+            }
+
+            //instantiate new ones
+            GM.GetComponent<LevelGenerator>().InstantiatePlaftorms(100, transform.position);
+        }
+     
     }
 
     void OnCollisionExit2D(Collision2D other)

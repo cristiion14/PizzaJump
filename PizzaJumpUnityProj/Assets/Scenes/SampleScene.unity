@@ -139,6 +139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DestructibleLedge
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 818763531267055034, guid: 9883973d6be56a540903024698098536,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -263,6 +268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
 --- !u!1 &57601025
@@ -325,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57601025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.131, y: 3.16, z: -10}
+  m_LocalPosition: {x: 0.131, y: 3.77, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1926684518}
@@ -512,10 +522,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160704915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.131, y: 3.16, z: 0}
+  m_LocalPosition: {x: 0.131, y: 3.77, z: 0}
   m_LocalScale: {x: 1.1855887, y: 1.255165, z: 1}
   m_Children:
   - {fileID: 1879017305}
+  - {fileID: 1213920940}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -862,6 +873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
 --- !u!1 &324864265
@@ -1008,6 +1024,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
 --- !u!1001 &454631324
@@ -1076,6 +1097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ledge (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -1228,7 +1254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.131, y: 3.16, z: -10}
+  m_LocalPosition: {x: 0.131, y: 3.77, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 554491948}
@@ -1332,6 +1358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ledge (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -1749,6 +1780,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostLedge
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 41c2472bb4f90de4cacc690f2fdd557b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 818763531267055034, guid: 41c2472bb4f90de4cacc690f2fdd557b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1872,6 +1908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ledge (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -2081,6 +2122,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1213920939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213920940}
+  - component: {fileID: 1213920942}
+  - component: {fileID: 1213920941}
+  m_Layer: 0
+  m_Name: PlatformInstantiator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1213920940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213920939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -8.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 160704917}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213920941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213920939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcb191f3238bf9468336dcd1e5db862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1213920942
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213920939}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11, y: 12.65}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15.64, y: 2.06}
+  m_EdgeRadius: 0
 --- !u!1 &1231047121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,6 +2237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
     type: 3}
+  instantiatedPlatform: []
   firstPlatformPos: {fileID: 705025279}
   numberOfPlatforms: 200
   levelWidth: 3
@@ -2246,6 +2358,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
 --- !u!1 &1704752711
@@ -2262,6 +2379,7 @@ GameObject:
   - component: {fileID: 1704752714}
   - component: {fileID: 1704752715}
   - component: {fileID: 1704752717}
+  - component: {fileID: 1704752718}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -2515,6 +2633,26 @@ MonoBehaviour:
   scoreTxT: {fileID: 582346086}
   gameOverCanvas: {fileID: 3439284}
   panel: {fileID: 167854116}
+--- !u!114 &1704752718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704752711}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5624709bb5038ee4a99d7e4980539dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformPrefab: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+    type: 3}
+  instantiatedPlatform: []
+  firstPlatformPos: {fileID: 0}
+  numberOfPlatforms: 100
+  levelWidth: 2.8
+  minY: 0.8
+  maxY: 1.5
 --- !u!1001 &1754904513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2581,6 +2719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ledge (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -2779,6 +2922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
 --- !u!1001 &1819584573
@@ -2792,6 +2940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DestructibleLedge (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 818763531267055034, guid: 9883973d6be56a540903024698098536,
         type: 3}
@@ -2876,7 +3029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879017304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.14, z: 0}
+  m_LocalPosition: {x: 0, y: -8.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 160704917}
@@ -2895,7 +3048,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01669693, y: 0.9736618}
+  m_Offset: {x: 0.01669693, y: 0.836735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2906,7 +3059,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.601, y: 1.7363136}
+  m_Size: {x: 15.601, y: 2.0101652}
   m_EdgeRadius: 0
 --- !u!114 &1879017307
 MonoBehaviour:
@@ -2929,6 +3082,10 @@ MonoBehaviour:
   monsterPrefab: {fileID: 3194354663450829458, guid: 2305e5d9c7bbacc45816719b7354dd7d,
     type: 3}
   addedEnemies: []
+  numberOfPlatforms: 100
+  levelWidth: 2.8
+  minY: 0.2
+  maxY: 1.5
 --- !u!1 &1900115778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,6 +3487,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge
       objectReference: {fileID: 0}
+    - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
 --- !u!1001 &1240007657117107563
@@ -3473,5 +3635,20 @@ PrefabInstance:
       propertyPath: nextWaypointDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8777054558856209664, guid: 2305e5d9c7bbacc45816719b7354dd7d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 3574327283868298348, guid: 2305e5d9c7bbacc45816719b7354dd7d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6741414922756445824, guid: 2305e5d9c7bbacc45816719b7354dd7d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2305e5d9c7bbacc45816719b7354dd7d, type: 3}

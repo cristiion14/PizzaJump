@@ -32,22 +32,27 @@ public class GameOverGM : MonoBehaviour
 
     void Update()
     {
-
+        //if the game is finished
         if (player.GetComponent<Player>().gameOver)
         {
+            //disable the unnecessary things
+            //enable the game over canvas
             DisableComponents();
 
+            //store the score
             score = Mathf.RoundToInt(player.GetComponent<Player>().topScore);
 
+            //compare the values and assign the highscore to the maximum one
             if (score > highScore)
             {
                 highScore = score;
                 PlayerPrefs.SetInt("HIGHSCORE", highScore);
             }
 
-
+            //update the text
             scoreTxT.text = "SCORE: " + score.ToString();
 
+            //reload the scene
             if (Input.GetMouseButtonDown(0) || Input.touchCount>0)
                 SceneManager.LoadScene(1);
 

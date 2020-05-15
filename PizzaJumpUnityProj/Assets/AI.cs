@@ -80,9 +80,9 @@ public class AI : MonoBehaviour
         enemyRB.AddForce(force);
 
         //distance to next waypoint
-        float distance = Vector2.Distance(enemyRB.position, path.vectorPath[currentWaypoint]);
+        float distance = (enemyRB.position - new Vector2(path.vectorPath[currentWaypoint].x, path.vectorPath[currentWaypoint].y)).sqrMagnitude;
 
-        if (distance < nextWaypointDistance)
+        if (distance < nextWaypointDistance*nextWaypointDistance)
             currentWaypoint++;
 
 

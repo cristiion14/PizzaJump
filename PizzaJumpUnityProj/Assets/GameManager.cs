@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         if ( player.transform.position.y > AstarPath.active.data.gridGraph.center.y)
         {
             float playerPos = player.transform.position.y;
-            Debug.LogError(Mathf.RoundToInt(playerPos));
+  //          Debug.LogError(Mathf.RoundToInt(playerPos));
             AstarPath.active.data.gridGraph.center.y += 3;
             AstarPath.active.Scan(AstarPath.active.data.graphs);
             nextTimeToScan += 20;   

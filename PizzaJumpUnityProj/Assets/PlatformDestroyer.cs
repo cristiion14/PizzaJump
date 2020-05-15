@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Profiling;
 public class PlatformDestroyer : MonoBehaviour
 {
 
@@ -19,9 +19,26 @@ public class PlatformDestroyer : MonoBehaviour
     int monsterInstantiated = 0;
     Vector2 playerLastPos =Vector2.zero;
     float nextTimeToSpawn = 10;
+
+    //Profiling
+    CustomSampler sampler;
+    GameObject GM;
+
+
+    //platforms pos
+    public int numberOfPlatforms = 100;
+    public float levelWidth = 2.8f;
+    public float minY = .2f;
+    public float maxY = 1.5f;
+
+    void Start()
+    {
+        GM = GameObject.Find("GM");
+    }
+
+
     void Update()
     {
-
         if (Time.time > nextTimeToSpawn)
         {
             StartCoroutine(InstantiateMonstr());
@@ -47,62 +64,48 @@ public class PlatformDestroyer : MonoBehaviour
     }
 
     int x = 0;
+    float offset = 0;
     void OnTriggerEnter2D(Collider2D other)
     {
-        /*
-        //Instatiate new platform
-        newPlatform = (GameObject)Instantiate(platformPrefab, new Vector2(Random.Range(-4, 4), 
-            GetComponentInParent<Player>().transform.position.y + (3.5f + Random.Range(0.5f, 1f))), Quaternion.identity);
-
-        if(other.tag=="Ledge")
-            Destroy(other.gameObject);
-            */
-
-         playerLastPos = GetComponentInParent<Player>().transform.position;
       
+        playerLastPos = GetComponentInParent<Player>().transform.position;
+
+        //margin between the distances
+        offset = other.transform.position.y - transform.position.y;
+
+        //the position to instantiate at
+        Vector2 posToInstantiate = new Vector2(Random.Range(-levelWidth, levelWidth),offset+ GetComponentInParent<Player>().transform.position.y);
+
+        //Starting the profiling
+        sampler = CustomSampler.Create("Collision Instantiating");
+        sampler.Begin();
 
         if (other.tag == "Ledge")
-        {
-         
-                other.transform.position = new Vector2(Random.Range(-2.5f, 2.5f), GetComponentInParent<Player>().transform.position.y +
-           (2f + Random.Range(0.5f, 1f)));
+                  other.transform.position = posToInstantiate;
 
+        if (other.tag == "DestructiveLedge")
+        {
+            Debug.Log("ELSE");
+            Destroy(other.gameObject);
+            Instantiate(destructivePlatformPrefab, posToInstantiate, Quaternion.identity);
         }
-
-         if (other.tag == "DestructiveLedge")
+        if (Random.Range(1, 50) == 5)
         {
-     //       if (Random.Range(1, 20) == 5)
-       //     {
-
-         //       Debug.Log("Random");
-           //     other.transform.position = new Vector2(Random.Range(-2.5f, 2.5f), GetComponentInParent<Player>().transform.position.y +
-       //  (3.5f + Random.Range(0.5f, 1f)));
-         //   }
-           // else
-            //{
-                Debug.Log("ELSE");
-                Destroy(other.gameObject);
-                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
-                    GetComponentInParent<Player>().transform.position.y + 2f + Random.Range(0.5f, 1f)), Quaternion.identity);
-            }
-     
-        //   instantiatedObj = other.gameObject;
-        if (Random.Range(1, 20) == 5)
-        {
-          instantiatedObj=  Instantiate(boostPlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
-             GetComponentInParent<Player>().transform.position.y + 2 + Random.Range(0.5f, 1f)), Quaternion.identity);
+            instantiatedObj = Instantiate(boostPlatformPrefab, posToInstantiate, Quaternion.identity);
 
             if (x == 0)
             {
-                Instantiate(destructivePlatformPrefab, new Vector2(Random.Range(-2.5f, 2.5f),
-                 instantiatedObj.transform.position.y + 2 + Random.Range(0.5f, 2f)), Quaternion.identity);
+                Instantiate(destructivePlatformPrefab, posToInstantiate, Quaternion.identity);
                 x = 1;
             }
-            
-
         }
         if (other.tag == "BoostLedge")
             Destroy(other.gameObject);
 
+        //end zone of profiling
+        sampler.End();
+
     }
+
 }
+
