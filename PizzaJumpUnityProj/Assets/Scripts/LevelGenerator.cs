@@ -5,110 +5,129 @@ using UnityEngine.Profiling;
 using Unity.Profiling;
 public class LevelGenerator : MonoBehaviour
 {
-    public GameObject platformPrefab;
+    public GameObject platformPrefab, destructivePlat;
+    public GameObject boostPlatformPrefab;
+    public GameObject monsterPrefab;
+
+    /// <summary>
+    /// based on the height of the player
+    /// </summary>
+    int nextTimeToSpawnPlatform = 200;
+    List<GameObject> platforms = new List<GameObject>();
+
+
     GameObject player;
   public  List<GameObject> instantiatedPlatform = new List<GameObject>();
     public Transform firstPlatformPos;
 
-    public int numberOfPlatforms = 100;
+    public int numberOfPlatforms = 300;
     public float levelWidth = 2.8f;
     public float minY = .2f;
     public float maxY = 1.5f;
-    
+
+    public int nextTimeToSpawn = 10;
+
+  
+    int monsterInstantiated = 0;
+    public List<GameObject> addedEnemies = new List<GameObject>();
+
+    bool canDestroyPlat = false;
+
     int instantiatePosD = 1;
     Vector3 spawnPos = new Vector3();
-
-   // static ProfilerMarker start = new ProfilerMarker("LevelGenerating.Prepare");
-    //static ProfilerMarker end   = new ProfilerMarker("LevelGenerating.Simuate");
 
 
     CustomSampler sampler;
     GameObject lastPlatform;
     Recorder profilerRec;
 
-    void Start()
-    {
-        InstantiatePlaftorms(numberOfPlatforms, Vector2.zero);
-
-    }
-       
-
-        
-        //   Profiler.EndSample();
-
-
-
-        /*
-        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position, Quaternion.identity));
-        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
-        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
-        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
-        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
-        instantiatedPlatform.Add(Instantiate(platformPrefab, firstPlatformPos.position + new Vector3(Random.Range(-levelWidth, levelWidth), Random.Range(minY, maxY),0), Quaternion.identity));
-        */
-
-        // Vector3 lastSpawnPos = new Vector3();
-        // Debug.Log(spawnPos.x);
-        /*
-        for (int i = 0; i < numberOfPlatforms; i++)
-        {
-            
-            spawnPos.x = Random.Range(-levelWidth, levelWidth);
-            spawnPos.y += Random.Range(minY, maxY);
-
-            Instantiate(platformPrefab, spawnPos, Quaternion.identity);
-            lastSpawnPos = spawnPos;
-
-        }
-        */
-
-
-    public void InstantiatePlaftorms(int numberOfPlatforms, Vector2 lastPos)
+    GameObject platformToInstantiate;
+    public void InstantiatePlaftorms(int numberOfPlatforms)
     {
         sampler = CustomSampler.Create("InstantiatingFunction");
 
         //begining of profiling
         sampler.Begin();
 
-        //position to instantiate
-        Vector3 instantiatePos = new Vector3();
-        instantiatePos.y = lastPos.y;
-        //loop through the number of wanted platforms and instantiate it
+        //   InstantiatePlaftorms(numberOfPlatforms, Vector2.zero);
         for (int i = 0; i < numberOfPlatforms; i++)
         {
-            instantiatePos.x = Random.Range(-levelWidth, levelWidth);
-            instantiatePos.y += Random.Range(minY, maxY);
+            //Define the spawn position
+            spawnPos.y += Random.Range(minY, maxY);
+            spawnPos.x = Random.Range(-levelWidth, levelWidth);
 
-            instantiatedPlatform.Add ( Instantiate(platformPrefab, instantiatePos, Quaternion.identity));
+            //pick a platform to instantiate
+            if (Random.Range(1, 10) == 5)
+                platformToInstantiate = destructivePlat;
+            else if (Random.Range(10, 20) == 14)
+                platformToInstantiate = boostPlatformPrefab;
+            else
+                platformToInstantiate = platformPrefab;
 
-            if (i == numberOfPlatforms - 1)
-                instantiatedPlatform[i].name = "lastPlatform";
+            //instantiate
+           platforms.Add( Instantiate(platformToInstantiate, spawnPos, Quaternion.identity));
         }
         //end area of the profiler
         sampler.End();
     }
-    int x = 0;
+
+    void DestroyOldPlatforms()
+    {
+        foreach (GameObject item in platforms)
+        {
+            platforms.Remove(item);
+            Destroy(item);
+        }
+    }
+
+    void Start()
+    {
+        // reference of the player
+        player = GameObject.Find("Player");
+
+        //Instantiate platforms
+       InstantiatePlaftorms(numberOfPlatforms);
+        
+    }
+       
+
+    IEnumerator InstantiateMonstr()
+    {
+        yield return new WaitForSeconds(1);
+        if (monsterInstantiated < 2)
+        {
+            //  addedEnemies.Add(Instantiate(monsterPrefab, new Vector2(Random.Range(-4f, 5f), player.GetComponent<Player>().transform.position.y - Random.Range(10, 20)), Quaternion.identity));
+            GameObject enemy = Instantiate(monsterPrefab, new Vector2(Random.Range(-4f, 5f), player.GetComponent<Player>().transform.position.y - Random.Range(10, 20)), Quaternion.identity);
+            monsterInstantiated++;
+        }
+
+    }
+
+    void SpawnMonsters()
+    {
+        if (Time.time > nextTimeToSpawn)
+        {
+            StartCoroutine(InstantiateMonstr());
+            nextTimeToSpawn += 10;
+        }
+        monsterInstantiated = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+    }
     void Update()
     {
-        /*
-        //Procedural Instantiating of platforms
-        if (player.GetComponent<Player>().hasJumped)
+        SpawnMonsters();
+        if(player.GetComponent<Player>().transform.position.y > nextTimeToSpawnPlatform)
         {
-            spawnPos.x = Random.Range(-levelWidth, levelWidth);
-            spawnPos.y += Random.Range(minY, maxY);
-           instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
-           instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
-           instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
-           instantiatedPlatform.Add( Instantiate(platformPrefab, spawnPos, Quaternion.identity));
-            instantiatePos += 3;
-
-          //  Destroy(instantiatedPlatform[i]);
-            i++;
-     //       Debug.LogError("i is: "+i);
+            canDestroyPlat = true;
+            if (canDestroyPlat)
+            {
+             //   DestroyOldPlatforms();
+                canDestroyPlat = false;
+            }
+            InstantiatePlaftorms(numberOfPlatforms);
+            nextTimeToSpawnPlatform += 200;
         }
-        
-        
-    */
+
     
     }
     

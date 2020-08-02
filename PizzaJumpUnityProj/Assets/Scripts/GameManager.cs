@@ -39,11 +39,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        //pause the game
         player.GetComponent<Player>().hasPressedPause = hasPressedPause;
+
+        //update the score text
         scoreTxT.text ="SCORE: "+Mathf.RoundToInt( player.GetComponent<Player>().topScore).ToString();
 
 
+        //adjust the backround color based on player position
         multiplier = player.transform.position.y/1000000;
         if (newColor.a <= 1)
         {
@@ -65,18 +68,19 @@ public class GameManager : MonoBehaviour
 
         }
 
+        backroundSprt.color = newColor;
 
+        //rescan the graph size for pathfinding
         if ( player.transform.position.y > AstarPath.active.data.gridGraph.center.y)
         {
             float playerPos = player.transform.position.y;
-  //          Debug.LogError(Mathf.RoundToInt(playerPos));
-            AstarPath.active.data.gridGraph.center.y += 3;
+            Debug.LogError("S-a rescanat");
+            AstarPath.active.data.gridGraph.center.y += 30;
             AstarPath.active.Scan(AstarPath.active.data.graphs);
             nextTimeToScan += 20;   
         }
 
 
-        backroundSprt.color = newColor;
 
         //UI for pause/play button
         if (hasPressedPause)

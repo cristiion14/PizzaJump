@@ -28,7 +28,7 @@ public class PlatformDestroyer : MonoBehaviour
 
     //platforms pos
     public int numberOfPlatforms = 100;
-    public float levelWidth = 2.8f;
+    public float levelWidth = 2.6f;
     public float minY = .2f;
     public float maxY = 1.5f;
 
@@ -68,14 +68,16 @@ public class PlatformDestroyer : MonoBehaviour
     float offset = 0;
     void OnTriggerEnter2D(Collider2D other)
     {
-      
+        Debug.LogError(offset);
         playerLastPos = GetComponentInParent<Player>().transform.position;
 
         //margin between the distances
         offset = other.transform.position.y - transform.position.y;
 
         //the position to instantiate at
-        Vector2 posToInstantiate = new Vector2(Random.Range(-levelWidth, levelWidth),offset+ GetComponentInParent<Player>().transform.position.y);
+        Vector2 posToInstantiate = new Vector2(Random.Range(-levelWidth, levelWidth),offset+ GetComponentInParent<Player>().transform.position.y + 2);
+        
+        Debug.LogError("POZITIA ESTE: " + posToInstantiate);
 
         //Starting the profiling
         sampler = CustomSampler.Create("Collision Instantiating");
@@ -88,7 +90,7 @@ public class PlatformDestroyer : MonoBehaviour
         {
             Debug.Log("ELSE");
             Destroy(other.gameObject);
-            Instantiate(destructivePlatformPrefab, posToInstantiate, Quaternion.identity);
+        //    Instantiate(destructivePlatformPrefab, posToInstantiate, Quaternion.identity);
         }
         if (Random.Range(1, 50) == 5)
         {

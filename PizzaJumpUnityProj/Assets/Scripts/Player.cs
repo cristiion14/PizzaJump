@@ -188,7 +188,7 @@ public    bool hasPressedPause = false;
             }
 
             //instantiate new ones
-            GM.GetComponent<LevelGenerator>().InstantiatePlaftorms(100, transform.position);
+           // GM.GetComponent<LevelGenerator>().InstantiatePlaftorms(100, transform.position);
         }
      
     }

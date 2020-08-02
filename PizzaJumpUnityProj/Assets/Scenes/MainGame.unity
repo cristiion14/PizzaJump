@@ -127,6 +127,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 582346085}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &28488226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 818763531267055038, guid: 41c2472bb4f90de4cacc690f2fdd557b,
+    type: 3}
+  m_PrefabInstance: {fileID: 755822626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &44151158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2404,6 +2410,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 535968304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1637206931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
+    type: 3}
+  m_PrefabInstance: {fileID: 44151158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704752711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,19 +2691,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704752711}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5624709bb5038ee4a99d7e4980539dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
     type: 3}
+  destructivePlat: {fileID: 1637206931}
+  boostPlatformPrefab: {fileID: 28488226}
+  monsterPrefab: {fileID: 3194354663450829458, guid: 2305e5d9c7bbacc45816719b7354dd7d,
+    type: 3}
   instantiatedPlatform: []
   firstPlatformPos: {fileID: 0}
-  numberOfPlatforms: 100
+  numberOfPlatforms: 300
   levelWidth: 2.8
   minY: 0.8
   maxY: 1.5
+  nextTimeToSpawn: 10
+  addedEnemies: []
 --- !u!1001 &1754904513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3059,7 +3077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1879017305
 Transform:
   m_ObjectHideFlags: 0
