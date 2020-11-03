@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
     /// based on the height of the player
     /// </summary>
     int nextTimeToSpawnPlatform = 200;
-    List<GameObject> platforms = new List<GameObject>();
+   public List<GameObject> platforms = new List<GameObject>();
 
 
   public  GameObject player;

@@ -129,8 +129,23 @@ public    bool hasPressedPause = false;
 
         if (x == 0 )
         {
+            //start the sound courutine
             StartCoroutine(DeathSoundEnum());
+
+            //instantiate the effect
             Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
+
+            //diasble player sprite
+            GetComponent<SpriteRenderer>().enabled = false;
+
+            //disable the ledges
+            GameObject[] ledgesToDisable = GM.GetComponent<GameManager>().FindObjectsOfLayer(10);
+
+            for (int i = 0; i < ledgesToDisable.Length; i++)
+            {
+                //ledgesToDisable[i].GetComponent<SpriteRenderer>().enabled = false;
+                Destroy(ledgesToDisable[i]);
+            }
 
             x = 1;
         }
@@ -139,6 +154,8 @@ public    bool hasPressedPause = false;
 
         if (deathSoundAudioSource == null)
         {
+            //disable the sprite of the player
+
             health = maxHealth;
             gameOver = true;
 
@@ -166,6 +183,9 @@ public    bool hasPressedPause = false;
 
         yield return new WaitForSeconds(time);
         health = maxHealth;
+        GetComponent<SpriteRenderer>().enabled = true;
+
+        
         SceneManager.LoadScene(0);
     }
     void OnCollisionEnter2D(Collision2D other)

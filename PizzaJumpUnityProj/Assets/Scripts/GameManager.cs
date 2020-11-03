@@ -109,12 +109,22 @@ public class GameManager : MonoBehaviour
             hasPressedPause = false;
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+   public GameObject[] FindObjectsOfLayer(int layer)
     {
-        if(other.collider.tag =="Player")
-        {
-            Player player = other.collider.GetComponent<Player>();
+        GameObject[] searchArr = GameObject.FindObjectsOfType<GameObject>();
+        List<GameObject> foundObj = new List<GameObject>();
 
+        for (int i = 0; i < searchArr.Length; i++)
+        {
+            if (searchArr[i].layer == layer)
+                foundObj.Add(searchArr[i]);
         }
+
+        if (foundObj.Count == 0)
+            return null;
+
+        return foundObj.ToArray();
     }
+
+
 }
