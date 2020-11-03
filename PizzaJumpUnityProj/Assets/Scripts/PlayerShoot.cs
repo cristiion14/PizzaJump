@@ -23,7 +23,7 @@ public class PlayerShoot : MonoBehaviour
 
            // nextTimeToFire += 3;
             direction.z = 0;
-            Debug.LogError(direction);
+
             Shoot();
         }
         

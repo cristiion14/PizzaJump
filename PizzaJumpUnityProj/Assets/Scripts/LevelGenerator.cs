@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject boostPlatformPrefab;
     public GameObject monsterPrefab;
 
+
     /// <summary>
     /// based on the height of the player
     /// </summary>
@@ -16,11 +17,13 @@ public class LevelGenerator : MonoBehaviour
     List<GameObject> platforms = new List<GameObject>();
 
 
-    GameObject player;
+  public  GameObject player;
+   public GameObject platformDestroyer; 
+
   public  List<GameObject> instantiatedPlatform = new List<GameObject>();
     public Transform firstPlatformPos;
 
-    public int numberOfPlatforms = 300;
+     int numberOfPlatforms = 200;
     public float levelWidth = 2.8f;
     public float minY = .2f;
     public float maxY = 1.5f;
@@ -53,7 +56,7 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < numberOfPlatforms; i++)
         {
             //Define the spawn position
-            spawnPos.y += Random.Range(minY, maxY);
+            spawnPos.y += Random.Range(minY, maxY) + player.transform.position.y;
             spawnPos.x = Random.Range(-levelWidth, levelWidth);
 
             //pick a platform to instantiate
@@ -73,17 +76,21 @@ public class LevelGenerator : MonoBehaviour
 
     void DestroyOldPlatforms()
     {
-        foreach (GameObject item in platforms)
-        {
-            platforms.Remove(item);
-            Destroy(item);
-        }
+        //check to see if the collider of the platform destroyer is touching the ledge 
+
+//        if (platformDestroyer.GetComponent<PlatformDestroyer>().canDestroyPlatform)
+  //      {
+            Debug.LogError("SHOULD DESTROY");
+            foreach (GameObject item in platforms)
+            {
+                platforms.Remove(item);
+                Destroy(item);
+            }
+    //    }
     }
 
     void Start()
     {
-        // reference of the player
-        player = GameObject.Find("Player");
 
         //Instantiate platforms
        InstantiatePlaftorms(numberOfPlatforms);
@@ -115,20 +122,33 @@ public class LevelGenerator : MonoBehaviour
     }
     void Update()
     {
+
+        if(player.transform.position.y %10 ==0)
+        {
+            Vector3 destructiveSpawnPos = new Vector3();
+            destructiveSpawnPos.x = Random.Range(-levelWidth, levelWidth);
+            destructiveSpawnPos.y += Random.Range(minY, maxY) + player.transform.position.y;
+
+            Instantiate(destructivePlat,new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+        }
         SpawnMonsters();
+    //    DestroyOldPlatforms();
+
+
+        /*
         if(player.GetComponent<Player>().transform.position.y > nextTimeToSpawnPlatform)
         {
             canDestroyPlat = true;
             if (canDestroyPlat)
             {
-             //   DestroyOldPlatforms();
+                DestroyOldPlatforms();
                 canDestroyPlat = false;
             }
             InstantiatePlaftorms(numberOfPlatforms);
             nextTimeToSpawnPlatform += 200;
         }
-
+        */
     
     }
-    
+
 }

@@ -127,12 +127,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 582346085}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &28488226 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 818763531267055038, guid: 41c2472bb4f90de4cacc690f2fdd557b,
-    type: 3}
-  m_PrefabInstance: {fileID: 755822626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &44151158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -1056,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -1849,7 +1843,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 41c2472bb4f90de4cacc690f2fdd557b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 818763531267055034, guid: 41c2472bb4f90de4cacc690f2fdd557b,
         type: 3}
@@ -1984,7 +1978,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -2400,7 +2394,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -2409,12 +2403,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 818763531267055034, guid: 6750764287dfd0d46b808e44c5b1d121,
     type: 3}
   m_PrefabInstance: {fileID: 535968304}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1637206931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
-    type: 3}
-  m_PrefabInstance: {fileID: 44151158}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704752711
 GameObject:
@@ -2496,7 +2484,7 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
+  BypassEffects: 1
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
@@ -2698,15 +2686,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
     type: 3}
-  destructivePlat: {fileID: 1637206931}
-  boostPlatformPrefab: {fileID: 28488226}
+  destructivePlat: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
+    type: 3}
+  boostPlatformPrefab: {fileID: 818763531267055038, guid: 41c2472bb4f90de4cacc690f2fdd557b,
+    type: 3}
   monsterPrefab: {fileID: 3194354663450829458, guid: 2305e5d9c7bbacc45816719b7354dd7d,
     type: 3}
+  player: {fileID: 160704915}
+  platformDestroyer: {fileID: 1879017304}
   instantiatedPlatform: []
   firstPlatformPos: {fileID: 0}
-  numberOfPlatforms: 300
   levelWidth: 2.8
-  minY: 0.8
+  minY: 0.2
   maxY: 1.5
   nextTimeToSpawn: 10
   addedEnemies: []
@@ -2780,7 +2771,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6750764287dfd0d46b808e44c5b1d121, type: 3}
@@ -3001,7 +2992,7 @@ PrefabInstance:
     - target: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 818763531267055034, guid: 9883973d6be56a540903024698098536,
         type: 3}
@@ -3077,7 +3068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1879017305
 Transform:
   m_ObjectHideFlags: 0
@@ -3105,7 +3096,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01669693, y: 0.836735}
+  m_Offset: {x: 0.01669693, y: -1.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3116,7 +3107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.601, y: 2.0101652}
+  m_Size: {x: 15.601, y: 0.87852925}
   m_EdgeRadius: 0
 --- !u!114 &1879017307
 MonoBehaviour:
@@ -3127,22 +3118,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1879017304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f31cfcd5b383114286515db8f80bafd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d54a399db0a454408973b0585fcc254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 818763531267055038, guid: 6750764287dfd0d46b808e44c5b1d121,
-    type: 3}
-  destructivePlatformPrefab: {fileID: 818763531267055038, guid: 9883973d6be56a540903024698098536,
-    type: 3}
-  boostPlatformPrefab: {fileID: 818763531267055038, guid: 41c2472bb4f90de4cacc690f2fdd557b,
-    type: 3}
-  monsterPrefab: {fileID: 3194354663450829458, guid: 2305e5d9c7bbacc45816719b7354dd7d,
-    type: 3}
-  addedEnemies: []
-  numberOfPlatforms: 100
-  levelWidth: 2.8
-  minY: 0.2
-  maxY: 1.5
+  GM: {fileID: 1704752711}
 --- !u!1 &1900115778
 GameObject:
   m_ObjectHideFlags: 0

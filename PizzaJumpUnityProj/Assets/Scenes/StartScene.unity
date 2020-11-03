@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &358198216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pizza Jump
+  m_Text: Cheesy Jump
 --- !u!222 &358198218
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -287,12 +287,12 @@ PrefabInstance:
     - target: {fileID: 1240007656563156295, guid: 55039cb22a58fcb4bbe910003850d018,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.417
+      value: -0.058
       objectReference: {fileID: 0}
     - target: {fileID: 1240007656563156295, guid: 55039cb22a58fcb4bbe910003850d018,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: -3.113
       objectReference: {fileID: 0}
     - target: {fileID: 1240007656563156295, guid: 55039cb22a58fcb4bbe910003850d018,
         type: 3}
@@ -339,10 +339,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1240007656563156295, guid: 55039cb22a58fcb4bbe910003850d018,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3683398
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240007656563156295, guid: 55039cb22a58fcb4bbe910003850d018,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.0504563
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240007656563156294, guid: 55039cb22a58fcb4bbe910003850d018,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b62db2b8c8ed125428646bd06bd685f8,
+        type: 3}
     - target: {fileID: 1240007656563156288, guid: 55039cb22a58fcb4bbe910003850d018,
         type: 3}
       propertyPath: m_Name
       value: PizzaJumpBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240007656563156288, guid: 55039cb22a58fcb4bbe910003850d018,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55039cb22a58fcb4bbe910003850d018, type: 3}

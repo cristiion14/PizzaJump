@@ -48,25 +48,20 @@ public class GameManager : MonoBehaviour
 
         //adjust the backround color based on player position
         multiplier = player.transform.position.y/1000000;
+
         if (newColor.a <= 1)
-        {
             newColor.a = player.transform.position.y / 200;
-        }
-         else if(newColor.g != 0)
-        {
+
+        else if(newColor.g != 0)
             newColor.g -= multiplier;
             newColor.a = 1;
-        }
-         if(newColor.g <=110)
-        {
+
+        if (newColor.g <=110)
             newColor.r -= multiplier;
-        }
 
-         if(newColor.r <=100)
-        {
+
+        if (newColor.r <=100)
             newColor.g += multiplier;
-
-        }
 
         backroundSprt.color = newColor;
 
