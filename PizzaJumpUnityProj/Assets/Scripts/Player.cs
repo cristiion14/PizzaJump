@@ -74,16 +74,14 @@ public    bool hasPressedPause = false;
 
     void FixedUpdate()
     {
-       
+        // teleporting
+        if (transform.position.x < edgeL.position.x)
+            transform.position = new Vector3(edgeR.position.x, transform.position.y, 0);
 
+        else if (transform.position.x > edgeR.position.x)
+            transform.position = new Vector3(edgeL.position.x, transform.position.y, 0);
 
-        if (transform.position.x < -3.2f)
-        {
-
-            transform.position = new Vector3(3.2f, transform.position.y, 0);
-        }
-        else if (transform.position.x > 3.2f)
-            transform.position = new Vector3(-3.2f, transform.position.y, 0);
+        
     }
 
   public  void TakeDMG(float damage)
