@@ -10,7 +10,7 @@ public class AI : MonoBehaviour
     GameObject targetP;
     GameObject GM;
 
-    public float speed = 200f;
+    public float speed = 100;
     public float nextWaypointDistance = 3f;
     Path path;
     int currentWaypoint = 0;

@@ -74,21 +74,6 @@ public class LevelGenerator : MonoBehaviour
         sampler.End();
     }
 
-    void DestroyOldPlatforms()
-    {
-        //check to see if the collider of the platform destroyer is touching the ledge 
-
-//        if (platformDestroyer.GetComponent<PlatformDestroyer>().canDestroyPlatform)
-  //      {
-            Debug.LogError("SHOULD DESTROY");
-            foreach (GameObject item in platforms)
-            {
-                platforms.Remove(item);
-                Destroy(item);
-            }
-    //    }
-    }
-
     void Start()
     {
 
@@ -132,23 +117,7 @@ public class LevelGenerator : MonoBehaviour
             Instantiate(destructivePlat,new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
         }
         SpawnMonsters();
-    //    DestroyOldPlatforms();
 
-
-        /*
-        if(player.GetComponent<Player>().transform.position.y > nextTimeToSpawnPlatform)
-        {
-            canDestroyPlat = true;
-            if (canDestroyPlat)
-            {
-                DestroyOldPlatforms();
-                canDestroyPlat = false;
-            }
-            InstantiatePlaftorms(numberOfPlatforms);
-            nextTimeToSpawnPlatform += 200;
-        }
-        */
-    
     }
 
 }

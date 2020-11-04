@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	//This is the enemy class
+
+    
 	
     float maxHealth = 100f;
   public  float health;
@@ -23,27 +25,6 @@ public class Enemy : MonoBehaviour
 
         health = maxHealth;
         
-     //   animCtrl = GetComponentInChildren<Animator>();
-    }
-
-    
-    void Update()
-    {
-
-       // GetComponent<AudioSource>().volume = 
-    }
-
-    public void TakeDmg(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0)
-            Die();
-    }
-
-    public void Die()
-    {
-        Destroy(gameObject);
     }
 
 
@@ -53,10 +34,7 @@ public class Enemy : MonoBehaviour
         {
             Player player = other.collider.GetComponent<Player>();
             player.wasHit = true;
-         //   player.TakeDMG(100);
             animCtrl.SetBool("IsTouching", true);
-
-//            Instantiate(player.playerDeathParticle, player.transform.position, Quaternion.identity);
         }
     }
 
